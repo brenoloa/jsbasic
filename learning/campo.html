@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Esquema Tático</title>
+    <style>
+        /* Estilo para o campo */
+        #campo {
+            background-image: url('https://static.vecteezy.com/ti/vetor-gratis/p1/9482455-futebol-campo-futebol-campo-fundo-vetor.jpg');
+            background-size: cover;
+            width: 800px;
+            height: 500px;
+            position: relative;
+            margin: 20px auto;
+            border: 1px solid #000;
+        }
+
+        /* Estilo para os jogadores (botões) */
+        .jogador {
+            width: 50px;
+            height: 50px;
+            background-color: black;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            position: absolute;
+            text-align: center;
+            cursor: move;
+        }
+
+        /* Nome do jogador */
+        .nome {
+            position: absolute;
+            top: 55px;
+            width: 100%;
+            text-align: center;
+            color: white;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+
+<div id="campo">
+    <!-- Jogadores serão adicionados aqui -->
+</div>
+
+<!-- Botão para adicionar jogador -->
+<button onclick="adicionarJogador()">Adicionar Jogador</button>
+
+<script>
+    let contador = 0;
+
+    function adicionarJogador() {
+        contador++;
+        
+        // Cria o botão do jogador
+        let jogador = document.createElement('button');
+        jogador.className = 'jogador';
+        jogador.innerText = 'GK';  // Posição inicial
+        jogador.style.left = '50%';
+        jogador.style.top = '50%';
+        
+        // Cria o nome do jogador
+        let nome = document.createElement('div');
+        nome.className = 'nome';
+        nome.innerText = 'Jogador ' + contador;
+
+        // Adiciona o nome ao botão
+        jogador.appendChild(nome);
+
+        // Permite movimentar o jogador
+        jogador.onmousedown = function(event) {
+            event.preventDefault();
+            document.onmousemove = function(e) {
+                jogador.style.left = e.pageX - jogador.offsetWidth / 2 + 'px';
+                jogador.style.top = e.pageY - jogador.offsetHeight / 2 + 'px';
+            }
+            document.onmouseup = function() {
+                document.onmousemove = null;
+            }
+        };
+
+        // Permite editar o texto ao clicar duas vezes
+        jogador.ondblclick = function() {
+            let novaPosicao = prompt("Digite a nova posição (ex: GK, ZAG, ATK):", jogador.innerText);
+            if (novaPosicao !== null && novaPosicao !== '') {
+                jogador.innerText = novaPosicao;
+                jogador.appendChild(nome);  // Reanexa o nome do jogador
+            }
+        };
+
+        // Adiciona o jogador ao campo
+        document.getElementById('campo').appendChild(jogador);
+    }
+</script>
+
+</body>
+</html>

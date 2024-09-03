@@ -1,6 +1,6 @@
-var preco = 100;
+let preco = 100;
 let tipo_cliente = "membro";
-var preco_final = 0;
+let preco_final = 0;
 
 
 function calcular(preco, tipo_cliente){

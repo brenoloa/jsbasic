@@ -1,6 +1,6 @@
 function TABUADA(numero){
-    for (var i = 1; i <= 10; i++){
-        var resultado = numero * i;
+    for (let i = 1; i <= 10; i++){
+        let resultado = numero * i;
         console.log(numero + " x " + i + " = " + resultado);
     }
     

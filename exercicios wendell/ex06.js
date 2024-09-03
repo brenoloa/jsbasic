@@ -1,7 +1,7 @@
 function contagemREGRESSIVA(numero){
-    var resultados = [];
-    for (var i = 0; i < numero + 1; i++){
-        resultados.push(numero - i);
+    let resultados = [];
+    for (let i = 0; i < numero + 1; i++){
+        resultados[i] = (numero - i);
         
     }
     return resultados;

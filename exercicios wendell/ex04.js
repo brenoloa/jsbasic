@@ -11,4 +11,4 @@ function calcularFrete(peso){
     }
 }
 
-console.log(calcularFrete(12));
+console.log(calcularFrete(3));

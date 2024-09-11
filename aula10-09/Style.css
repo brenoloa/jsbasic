@@ -1,0 +1,27 @@
+button {
+    height: 40px;
+    width: 40px;
+    background-color: green;
+    color: white;
+    font-size: xx-large;
+}
+
+input {
+    height: 40px;
+    width: 165px;
+    font-size: xx-large;
+}
+
+body {
+    background-color: rgb(187, 187, 211);
+}
+
+.but {
+    width: 165px;
+    background-color: rgb(128, 128, 160);
+}
+
+img {
+    height: 400px;
+}
+
